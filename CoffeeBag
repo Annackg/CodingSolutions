@@ -1,0 +1,52 @@
+public class CoffeeBag
+{
+    public static void main()
+    {
+        // Creates a variable to store the total price
+        double totalPrice = 0;
+        // Creates a variable to store the total price with tax
+        double totalPriceWithTax = 0;
+        // Creates a scanner object
+        Scanner scan = new Scanner(System.in);
+        // Asks the user to input what is the unit of weight
+        System.out.println("What is the unit of weight?");
+        // Stores the name of the unit of weight in a string
+        String unit = scan.nextLine();
+        // Asks the user to input the weight of one bag of coffee
+        System.out.println("What is the weight of one bag?");
+        // Stores the weight of one bag in a double 
+        double weight = scan.nextDouble();
+        // Asks the user to input the number of bags sold
+        System.out.println("What is the number of bags sold?");
+        // Stores the number of bags sold in an int
+        int bagsSold = scan.nextInt();
+        // Checks to see what was the unit used by the user
+        if (unit.equals("pounds") || unit.equals("pound") || unit.equals("lb")){
+            // Multiplies the number of bags by the weight to find the total price per pound
+            totalPrice = weight * bagsSold * 5.99;
+            // Adds taxes to the total price
+            totalPriceWithTax = totalPrice + (totalPrice * 0.0725);
+            // Gives the user the information used to determine the total price
+            System.out.println("Number of bags sold: " + bagsSold);
+            System.out.println("Weight per bag: " + weight + " lb");
+            System.out.println("Price per pound: $5.99");
+            System.out.println("Sales tax: 7.25%");
+            System.out.println("Total price: " + totalPriceWithTax);
+        }
+        else if (unit.equals("kilograms") || unit.equals("kilogram") || unit.equals("kg")){
+            // Converts the kilograms to pounds
+            weight = Math.round(weight * 2.20462);
+            // Multiplies the number of bags by the weight to find the total price per pound
+            totalPrice = weight * bagsSold * 5.99;
+            // Adds taxes to the total price
+            totalPriceWithTax = totalPrice + (totalPrice * 0.0725);
+            // Gives the user the information used to determine the total price
+            System.out.println("Number of bags sold: " + bagsSold);
+            System.out.println("The weight input in kilograms was converted to pounds.");
+            System.out.println("Weight per bag: " + weight + " lb");
+            System.out.println("Price per pound: $5.99");
+            System.out.println("Sales tax: 7.25%");
+            System.out.println("Total price: " + totalPriceWithTax);
+        }
+    }
+}
