@@ -1,0 +1,34 @@
+import java.util.Scanner;
+public class FindLetters
+{
+    public static void main()
+    {
+        // Creates a variable count
+        int count = 0;
+        // Creates a scanner to get input from the user
+        Scanner scan = new Scanner(System.in);
+        // Tells the user what they should input
+        System.out.println("Input the text you want to use.");
+        // Creates a string and stores the text in that string
+        String text = scan.nextLine();
+        // Tells the user what they should input
+        System.out.println("Input the letter you want to count.");
+        // Creates a string variable and stores the input of the user in that variable
+        String letter = scan.nextLine();
+        // Creates an array and separates the 'text' string into its separate characters, storing each one in a different index
+        String[] characters = new String[text.length()];
+        for (int z = 0; z < characters.length; z++){
+            characters[z] = text.substring(z, z + 1);
+        }
+        // Creates a loop to traverse through the list and checks if an index in an array is equal to the letter chosen by the user, if so, it adds one to the count
+        for (int i = 0; i < characters.length; i++){
+            if (characters[i].equals(letter)){
+                count = count + 1;
+            }
+        }
+        // Prints out the number of appearances of a letter
+        System.out.println("The number of times this letter appears in the text is " + count);
+    }
+}
+
+
