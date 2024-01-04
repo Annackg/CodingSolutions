@@ -1,0 +1,42 @@
+import java.util.Scanner;
+public class populationGrowth
+{
+    public static void main()
+    {
+        // Creates a scanner object
+        Scanner scan = new Scanner(System.in);
+        // Tells the user what they should input
+        System.out.println("What is the initial year?");
+        // Stores the year in a double variable
+        int yearA = scan.nextInt();
+        // Tells the user what they should input
+        System.out.println("What is the population in the initial year?");
+        // Stores the population in that year in a double variable
+        double popYearA = scan.nextDouble();
+        // Tells the user what they should input
+        System.out.println("What is another year in which the population is known?");
+        // Stores the year in an int variable
+        int yearB = scan.nextInt();
+        // Tells the user what they should input
+        System.out.println("What is the population in that year?");
+        // Stores the population in that year in a double variable
+        double popYearB = scan.nextDouble();
+        // Tells the user what they should input
+        System.out.println("For what year do you want to predict the population?");
+        // Stores the year in a double variable
+        int yearC = scan.nextInt();
+        // Finds the number of years after the initial year until year B
+        int difYears = yearB - yearA;
+        System.out.println(difYears);
+        // Finds the growth rate of the population by taking the log of the difference in population
+        // between year B and A, and multiplying it by one over the number of years after year A
+        double varK = Math.log(popYearB/popYearA) * (1/difYears);
+        System.out.println(varK);
+        // Finds the number of years after the initial year
+        int xYears = yearC - yearA;
+        // Finds the population in year C
+        double popYearC = Math.exp(varK * xYears) * popYearA;
+        // Prints out the population in year C
+        System.out.println("According to the population growth in previous years, the population in " + yearC + " will be " + popYearC);
+    }
+}
