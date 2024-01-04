@@ -1,0 +1,34 @@
+import java.util.Scanner;
+public class LawOfCosines
+{
+    public static void main()
+    {
+        // Explains to the user what the program does
+        System.out.println("The law of cosines states that given any triangle with side lengths a, b, and c and angle measures A, B, and C such that each angle and the side opposite it are represented with the same letter, the equation of the law of cosines is true. This program uses this formula to find the value of side 'c'");
+        // Creates a new scanner object
+        Scanner scan = new Scanner(System.in);
+        // Tells the user what they should input
+        System.out.println("What is the value of side 'a'?");
+        // Creates a double variable to store the value of side 'a' input by the user
+        double varSideA = scan.nextDouble();
+        // Tells the user what they should input
+        System.out.println("What is the value of side 'b'?");
+        // Creates a double variable to store the value of side 'b' input by the user
+        double varSideB = scan.nextDouble();
+        // Tells the user what they should input
+        System.out.println("What is the value of angle 'C'?");
+        // Creates a double variable to store the value of angle 'C' input by the user
+        double varAngleC = Math.toRadians(scan.nextDouble());
+        // Squares the values of side 'a' and 'b'
+        double aSquared = varSideA * varSideA;
+        double bSquared = varSideB * varSideB;
+        // Finds the sum of the values squared of 'a' and 'b'
+        double sumOfab = aSquared + bSquared;
+        // Performs the calculations to the right of the equal sign in the formula (excluding the sum of sides)
+        double twoTimes = 2 * varSideA * varSideB * Math.cos(varAngleC);
+        // Finds the value of the calculations to the right of the equal sign and takes the square root of that
+        double subtractAndSquare = Math.sqrt(sumOfab - twoTimes);
+        // Prints out the rounded value of side 'c'
+        System.out.println("The value of side 'c' is equal to: " + Math.round(subtractAndSquare));
+    }
+}
